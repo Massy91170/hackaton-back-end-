@@ -18,4 +18,12 @@ router.get('/', function (req,res){
     .then(data => res.json(data))
 });
 
+router.delete('/', function (req,res){
+  console.log(req.body)
+  Cart.deleteOne({
+    _id: req.body.id
+  })
+  .then(data => res.json(data) )
+})
+
 module.exports = router;
