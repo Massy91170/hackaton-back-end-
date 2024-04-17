@@ -5,7 +5,7 @@ const moment = require('moment');
 
 
 router.get('/:departure/:arrival/:date', function(req, res) {
-    const selectedDate = moment.utc(req.params.date).format('YYYY-MM-DD'); 
+    const selectedDate = moment.utc(req.params.date).format("YYYY-MM-DD"); 
     const startDate = `${selectedDate}T00:00:00.000+00:00`;
     const endDate = `${selectedDate}T23:59:59.999+00:00`; 
 
@@ -17,7 +17,17 @@ router.get('/:departure/:arrival/:date', function(req, res) {
             $lte: endDate,
         }
     })
-    .then(data => res.json(data))
+    .then(data => {
+        res.json(data)
+        // res.json({
+        //     result: true,
+        //     trajets: {
+        //         departure: data.departure,
+        //         arrival: data.departure,
+        //         date: data.departure,
+        //     }
+        // })
+    })
 })
 
     // const searchedDate = req.body.date;
