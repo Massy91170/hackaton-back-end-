@@ -2,10 +2,8 @@ var express = require('express');
 var router = express.Router();
 const Booking = require("../models/bookings")
 
-/* GET home page. */
+
 router.post('/', function(req, res) {
-    
-    // reçoit une string à mettre en json
     
 
     const newBooking = new Booking ({
@@ -14,5 +12,12 @@ router.post('/', function(req, res) {
     newBooking.save()
     .then(data => res.json(data))
 });
+
+
+router.get('/', function(req, res){
+    Booking.find()
+    .populate("trajet")
+    .then(data => res.json(data))
+})
 
 module.exports = router;
