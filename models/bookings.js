@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const trajetSchema = mongoose.Schema({
+const bookingSchema = mongoose.Schema({
     trajet: {type: mongoose.Schema.Types.ObjectId, ref : 'trajets'}
 });
 
-const Trajet = mongoose.model("trajets", trajetSchema);
+const Booking = mongoose.model("bookings", bookingSchema);
 
-module.exports = Trajet;
+module.exports = Booking;
