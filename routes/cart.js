@@ -14,7 +14,7 @@ newCart.save()
 });
 
 router.get('/', function (req,res){
-    Cart.find()
+    Cart.find().populate("trajet")
     .then(data => res.json(data))
 });
 
