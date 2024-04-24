@@ -17,7 +17,10 @@ router.post('/', function(req, res) {
 router.get('/', function(req, res){
     Booking.find()
     .populate("trajet")
-    .then(data => res.json(data))
+    .then((data) =>{
+        console.log(data) 
+        res.json(data)
+    })
 })
 
 module.exports = router;
